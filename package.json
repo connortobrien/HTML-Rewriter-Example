@@ -1,0 +1,31 @@
+{
+  "name": "html-rewritter",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Sample Cloudflare worker to rewrite html or inject script into header",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "npm run build && vitest run",
+    "dev": "npm run build && wrangler dev dist/index.js --local",
+    "deploy": "wrangler publish",
+    "build": "wrangler publish --dry-run --outdir dist"
+  },
+  "keywords": [
+    "html",
+    "funnelenvy",
+    "cloudflare",
+    "wrangler"
+  ],
+  "author": "Connor O'Brien",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230321.0",
+    "@types/jest": "^29.5.0",
+    "miniflare": "^2.13.0",
+    "vitest": "^0.29.8",
+    "vitest-environment-miniflare": "^2.13.0",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1",
+    "wrangler": "^2.13.0"
+  }
+}

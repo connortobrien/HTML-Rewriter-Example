@@ -1,0 +1,4 @@
+name = "wrangler-html-rewriter-example"
+route = "https://connorthomasobrien.com"
+main = "src/index.ts"
+compatibility_date = "2022-05-03"
