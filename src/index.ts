@@ -1,27 +1,22 @@
-// export interface Env {};
+export interface Env {};
 
-// TODO: turn back on isolated modules
-// export default {
-// 	async fetch(
-// 		request: Request,
-// 		_env: Env,
-// 		ctx: ExecutionContext,
-// 	): Promise<Response> {
-// 		ctx.passThroughOnException();
-// 		return editPageContext(request);
-// 	}
-// }
-
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
+export default {
+	async fetch(
+		request: Request,
+		_env: Env,
+		ctx: ExecutionContext,
+	): Promise<Response> {
+		ctx.passThroughOnException();
+		return handleRequest(request);
+	}
+}
 
 const handleRequest = async (request: Request): Promise<Response> => {
 	console.log("URL:", request.url);
 	const response = await fetch(request);
 	console.log(response);
 
-	if (request.url === "http://connorthomasobrien.com/") {
+	if (request.url === "https://connorthomasobrien.com") {
 		return new HTMLRewriter()
 			.on("head", new HeadFixer())
 			.transform(response);
@@ -29,12 +24,6 @@ const handleRequest = async (request: Request): Promise<Response> => {
 
 	return response;
 };
-
-class CatchAll {
-	element(e: Element) {
-		console.log(e);
-	}
-}
 
 class HeadFixer {
 	element(e: Element) {

@@ -19,7 +19,7 @@
 		"allowJs": true,
 		"checkJs": false,
 		"noEmit": true,
-		"isolatedModules": false,
+		"isolatedModules": true,
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
