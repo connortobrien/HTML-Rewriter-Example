@@ -4,7 +4,7 @@ export default {
 	async fetch(
 		request: Request,
 		_env: Env,
-		ctx: ExecutionContext,
+		_ctx: ExecutionContext,
 	): Promise<Response> {
 		// ctx.passThroughOnException();
 		return handleRequest(request);
