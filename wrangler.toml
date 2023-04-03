@@ -1,4 +1,4 @@
 name = "wrangler-html-rewriter-example"
-route = "https://connorthomasobrien.com"
+route = "connorthomasobrien.com/*"
 main = "src/index.ts"
 compatibility_date = "2023-04-03"
