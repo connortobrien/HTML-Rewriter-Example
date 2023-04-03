@@ -16,13 +16,9 @@ const handleRequest = async (request: Request): Promise<Response> => {
 	const response = await fetch(request);
 	console.log(response);
 
-	if (request.url === "https://connorthomasobrien.com") {
-		return new HTMLRewriter()
-			.on("head", new HeadFixer())
-			.transform(response);
-	}
-
-	return response;
+	return new HTMLRewriter()
+		.on("head", new HeadFixer())
+		.transform(response);
 };
 
 class HeadFixer {
