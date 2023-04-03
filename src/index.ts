@@ -6,19 +6,21 @@ export default {
 		_env: Env,
 		ctx: ExecutionContext,
 	): Promise<Response> {
-		ctx.passThroughOnException();
+		// ctx.passThroughOnException();
 		return handleRequest(request);
 	}
 }
 
 const handleRequest = async (request: Request): Promise<Response> => {
-	console.log("URL:", request.url);
 	const response = await fetch(request);
-	console.log(response);
 
-	return new HTMLRewriter()
-		.on("head", new HeadFixer())
-		.transform(response);
+  if (request.url === "https://connorthomasobrien.com/") {
+    return new HTMLRewriter()
+			.on("head", new HeadFixer())
+			.transform(response);
+  }
+
+  return response;
 };
 
 class HeadFixer {
